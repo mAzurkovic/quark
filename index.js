@@ -2,6 +2,8 @@
 const electron = require('electron');
 const app = electron.app;
 
+var globalShortcut = require('global-shortcut');
+
 // report crashes to the Electron project
 require('crash-reporter').start();
 
@@ -20,7 +22,7 @@ function onClosed() {
 function createMainWindow() {
 	const win = new electron.BrowserWindow({
 		width: 600,
-		height: 400
+		height: 175
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);
@@ -43,5 +45,7 @@ app.on('activate', () => {
 });
 
 app.on('ready', () => {
-	mainWindow = createMainWindow();
+	var ret = globalShortcut.register('`', function() {
+		mainWindow = createMainWindow();
+	});
 });
