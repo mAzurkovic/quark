@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="index.css">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -14,12 +15,30 @@
 			</header>
 			<section class="main"></section>
 
-			<div class="input-group input-group-lg">
+			<div class="input-group input-group-lg" id="user-input">
   			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
   			<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1">
+				<button type="button" class="btn btn-default navbar-btn" id="btn">Sign in</button>
+
 			</div>
+
+    	<img src="https://media.giphy.com/media/6RoUMn34pqvcs/giphy.gif" alt="">
 
 			<footer></footer>
 		</div>
 	</body>
+
+	<script type="text/javascript">
+		var ipc = require('ipc');
+
+		var btnMain = document.getElementById('btn');
+		var usrQuery = document.getElementById('user-input').text;
+		/*btnMain.addEventListener('click', function(){
+				ipc.send('invokeAction', usrQuery);
+				ipc.on('actionReply', function(response){ // would it be possible to use .once here? Does someone know?
+				processResponse(response);
+			})
+		}); */
+	</script>
+
 </html>
