@@ -11,7 +11,7 @@
 	<body>
 		<div class="container">
 			<header>
-				<h1>Welcome to Quark.</h1>
+			<h1></h1>
 			</header>
 			<section class="main"></section>
 
@@ -20,7 +20,7 @@
 				<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)"/>
 			</div>
 
-    	<img src="https://media.giphy.com/media/6RoUMn34pqvcs/giphy.gif" alt="">
+    	<!--<img src="https://media.giphy.com/media/6RoUMn34pqvcs/giphy.gif" alt="">-->
 
 			<footer></footer>
 		</div>
@@ -30,15 +30,14 @@
 		var ipc = require('ipc');
 		var shell = require('shell');
 
-		var btnMain = document.getElementById('btn');
-		var usrQuery = document.getElementById('user-input').text;
-
+		function query(val) {
+			shell.openExternal("https://www.google.ca/?gfe_rd=cr&ei=5NnpVfajF4qV8QfglLCQBg&gws_rd=ssl#q=" + val);
+		}
 
 		function search(ele) {
 		    if(event.keyCode == 13) {
-		        var inputValue = ele.value;
-						shell.openExternal("https://www.google.com");
-						alert(inputValue);
+		        var usrQuery = ele.value;
+						query(usrQuery);
 		    }
 		}
 

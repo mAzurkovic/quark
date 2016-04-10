@@ -1,7 +1,7 @@
 # quark
 
 > My fine app
-
+![alt text](https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
 
 ## Dev
 

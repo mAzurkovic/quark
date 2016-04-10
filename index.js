@@ -45,16 +45,18 @@ app.on('activate', () => {
 	}
 });
 
+var startPref = '`';
+var quitPref = '-';
 
 app.on('ready', () => {
-	var ret = globalShortcut.register('`', function() {
+	var standBy = true;
+	var ret = globalShortcut.register(startPref, function() {
+		startPref ='-'
 		mainWindow = createMainWindow();
 		console.log('@Main Render');
-		ipc.on('invokeAction', function(event, data){
-			var result = processData(data);
-			event.sender.send('actionReply', result);
-			console.log("wd");
-		});
 
-	});
+		var quit = globalShortcut.register(startPref, function() {
+			app.quit();
+		})
+	})
 });
