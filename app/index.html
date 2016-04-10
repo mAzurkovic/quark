@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Quark</title>
+		<link rel="stylesheet" href="index.css">
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+			<h1></h1>
+			</header>
+			<section class="main"></section>
+
+			<div class="input-group input-group-lg">
+  			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+				<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)"/>
+			</div>
+
+			<footer></footer>
+		</div>
+	</body>
+
+	<script>
+		var ipc = require('ipc');
+		var shell = require('shell');
+
+		function query(val) {
+			shell.openExternal("https://www.google.ca/?gfe_rd=cr&ei=5NnpVfajF4qV8QfglLCQBg&gws_rd=ssl#q=" + val);
+		}
+
+		function search(ele) {
+		    if(event.keyCode == 13) {
+		        var usrQuery = ele.value;
+						query(usrQuery);
+		    }
+		}
+
+	</script>
+
+</html>
