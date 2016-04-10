@@ -1,10 +1,13 @@
-# quark
-![alt text](https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
+# Quark
 Quark is a desktop application that allows you to search the net instantly. The program itself is bound to a key-binding (specified by the user),
 that, when pressed, prompts the user to type their web query and opens that desired query in their default browser. In the future, Quark will also
 be able to search the users local content and return results from there as well.
 
-## Dev
+![Monkey](https://media.giphy.com/media/xTiTnJ3BooiDs8dL7W/giphy.gif)
+
+
+
+## Installing
 To install the Quark source code:
 ```
 $ git clone https://github.com/mAzurkovic/quark.git
