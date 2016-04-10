@@ -15,11 +15,9 @@
 			</header>
 			<section class="main"></section>
 
-			<div class="input-group input-group-lg" id="user-input">
+			<div class="input-group input-group-lg">
   			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-  			<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1">
-				<button type="button" class="btn btn-default navbar-btn" id="btn">Sign in</button>
-
+				<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)"/>
 			</div>
 
     	<img src="https://media.giphy.com/media/6RoUMn34pqvcs/giphy.gif" alt="">
@@ -28,17 +26,22 @@
 		</div>
 	</body>
 
-	<script type="text/javascript">
+	<script>
 		var ipc = require('ipc');
+		var shell = require('shell');
 
 		var btnMain = document.getElementById('btn');
 		var usrQuery = document.getElementById('user-input').text;
-		/*btnMain.addEventListener('click', function(){
-				ipc.send('invokeAction', usrQuery);
-				ipc.on('actionReply', function(response){ // would it be possible to use .once here? Does someone know?
-				processResponse(response);
-			})
-		}); */
+
+
+		function search(ele) {
+		    if(event.keyCode == 13) {
+		        var inputValue = ele.value;
+						shell.openExternal("https://www.google.com");
+						alert(inputValue);
+		    }
+		}
+
 	</script>
 
 </html>

@@ -49,5 +49,12 @@ app.on('activate', () => {
 app.on('ready', () => {
 	var ret = globalShortcut.register('`', function() {
 		mainWindow = createMainWindow();
+		console.log('@Main Render');
+		ipc.on('invokeAction', function(event, data){
+			var result = processData(data);
+			event.sender.send('actionReply', result);
+			console.log("wd");
+		});
+
 	});
 });
