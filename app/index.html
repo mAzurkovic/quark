@@ -51,7 +51,7 @@
 				<div class="item">
 					<i class="large setting middle aligned icon"></i>
 					<div class="content">
-						<h3 class="ui header">Use "//Settings" to access the settings window</h3>
+						<h3 class="ui header">Use ".settings" to access the settings window</h3>
 					</div>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 			document.getElementById('startDisplayDiv').style.display = 'block';
 			document.getElementById('displayDiv').style.display = 'none';
 		}
-
+		// GOTO a website that the user has entered...
 		if (usrField.value.indexOf("/") > -1) {
 			document.getElementById('display').innerHTML = "www." + "<span style='background-color: yellow;'>" + usrField.value.replace('/', '') + "</span>" + ".com";
 		}
@@ -101,7 +101,12 @@
 	function search(ele) {
 		if (event.keyCode == 13) {
 			var usrQuery = ele.value;
-			query(usrQuery);
+			if (usrQuery.indexOf("/") > -1) {
+				shell.openExternal("https://www." + usrQuery.replace('/', '') + ".com");
+			}
+			else {
+				query(usrQuery);
+			}
 		}
 	}
 </script>
