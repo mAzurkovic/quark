@@ -49,7 +49,7 @@ app.on('activate', () => {
 
 app.on('ready', () => {
 	// Init the application window
-	mainWindow = createMainWindow(600, 175, false);
+	mainWindow = createMainWindow(600, 375, false);
 	var ret = globalShortcut.register('CmdOrCtrl+`', function() {
 		// Display the window
 		mainWindow.show();
