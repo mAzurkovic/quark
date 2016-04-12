@@ -13,6 +13,7 @@ require('electron-debug')();
 
 // prevent window being garbage collected
 let mainWindow;
+let prefWindow;
 
 function onClosed() {
 	// dereference the window
@@ -20,11 +21,11 @@ function onClosed() {
 	mainWindow = null;
 }
 
-function createMainWindow() {
+function createMainWindow(width, height, visible) {
 	const win = new electron.BrowserWindow({
-		width: 600,
-		height: 175,
-		show: false // Initial visibility is false (user needs to press default key to display)
+		width: width,
+		height: height,
+		show: visible // Initial visibility is false (user needs to press default key to display)
 	});
 
 	win.loadURL(`file://${__dirname}/index.html`);
@@ -46,11 +47,9 @@ app.on('activate', () => {
 	}
 });
 
-var startPref = '`';
-var quitPref = '-';
 app.on('ready', () => {
 	// Init the application window
-	mainWindow = createMainWindow();
+	mainWindow = createMainWindow(600, 175, false);
 	var ret = globalShortcut.register('CmdOrCtrl+`', function() {
 		// Display the window
 		mainWindow.show();
@@ -58,6 +57,5 @@ app.on('ready', () => {
 		var quit = globalShortcut.register('`', function() {
 			mainWindow.hide();
 		})
-
 	})
 });

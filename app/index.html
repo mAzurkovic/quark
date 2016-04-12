@@ -4,21 +4,35 @@
 		<meta charset="utf-8">
 		<title>Quark</title>
 		<link rel="stylesheet" href="index.css">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!--	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" media="screen" charset="utf-8">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 	</head>
 	<body>
-		<div class="container">
+		<div class="ui center aligned container">
 			<header>
 			<h1></h1>
 			</header>
 			<section class="main"></section>
 
-			<div class="input-group input-group-lg">
+			<!-- <div class="input-group input-group-lg">
   			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-				<input type="text" class="form-control" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)"/>
+				<input type="text" class="form-control" id="inputField" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)" autofocus/>
+			</div> -->
+
+			<div class="ui massive fluid icon input" >
+			  <input placeholder="Search..." type="text" id="inputField" onkeydown="search(this)" autofocus>
+			  <i class="search icon"></i>
 			</div>
+
+			<div class="ui divider"></div>
+
+			<div id='display'></div>
 
 			<footer></footer>
 		</div>
@@ -27,6 +41,16 @@
 	<script>
 		var ipc = require('ipc');
 		var shell = require('shell');
+
+		var usrField = document.getElementById('inputField');
+
+		if (document.getElementById('inputField').value == null) {
+			document.getElementById('display').text = 0;
+		}
+
+		usrField.onkeyup = function() {
+			document.getElementById('display').innerHTML = '<i class="google icon"> </i>'+ usrField.value;
+		}
 
 		function query(val) {
 			shell.openExternal("https://www.google.ca/?gfe_rd=cr&ei=5NnpVfajF4qV8QfglLCQBg&gws_rd=ssl#q=" + val);
@@ -37,6 +61,11 @@
 		        var usrQuery = ele.value;
 						query(usrQuery);
 		    }
+		}
+
+		function uniCharCode(event) {
+			var char = event.which || event.keyCode;
+			document.getElementById('display').innerHTML = " "
 		}
 
 	</script>
