@@ -1,40 +1,21 @@
 <!doctype html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<title>Quark</title>
 	<link rel="stylesheet" href="index.css">
-	<!--	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
--->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css" media="screen" charset="utf-8">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
 </head>
-
 <body>
 	<div class="ui center aligned container">
-		<header>
-			<h1></h1>
-		</header>
-		<section class="main"></section>
-
-		<!-- <div class="input-group input-group-lg">
-  			<span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-				<input type="text" class="form-control" id="inputField" placeholder="Search..." aria-describedby="sizing-addon1" onkeydown="search(this)" autofocus/>
-			</div> -->
-
+		<br>
 		<div class="ui massive fluid icon input">
 			<input placeholder="Search..." type="text" id="inputField" onkeydown="search(this)" autofocus>
 			<i class="search icon"></i>
 		</div>
-
-		<!--<div class="ui divider"></div> -->
 		<div class="ui very padded segment" id="startDisplayDiv">
-
 			<div class="ui very padded relaxed divided list" id="startDisplay">
 				<div class="item">
 					<i class="large cloud middle aligned icon"></i>
@@ -51,22 +32,38 @@
 				<div class="item">
 					<i class="large setting middle aligned icon"></i>
 					<div class="content">
-						<h3 class="ui header">Use ".settings" to access the settings window</h3>
+						<h3 class="ui header">Use ".settings" to view available commands and settings</h3>
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 		<div class="ui very padded segment" id="displayDiv">
 			<div id='display'></div>
 		</div>
-
+		<div class="ui very padded segment" id="settingsDiv">
+			<div class="ui very padded relaxed divided list" id="settings">
+				<div class="item">
+					<i class="large cloud middle aligned icon"></i>
+					<div class="content">
+						<h3 class="ui header">.about</h3>
+					</div>
+				</div>
+				<div class="item">
+					<i class="large map middle aligned icon"></i>
+					<div class="content">
+						<h3 class="ui header">.config</h3>
+					</div>
+				</div>
+				<div class="item">
+					<i class="large setting middle aligned icon"></i>
+					<div class="content">
+						<h3 class="ui header">.config</h3>
+					</div>
+				</div>
+			</div>
+		</div>
 		<footer></footer>
 	</div>
 </body>
-
-<!-- JS file that handle the opening of the queries and some of the main UX components -->
 <script src="render.js"></script>
-
 </html>

@@ -9,6 +9,7 @@ var siteSearch = null;
 var inputState = 0;
 
 document.getElementById('display').style.display = 'none';
+removeDiv('settingsDiv');
 
 usrField.onkeyup = function() {
   // Set default visibility of net display to visible
@@ -16,9 +17,11 @@ usrField.onkeyup = function() {
   // Check which panel to show
   if (document.getElementById('inputField').value.length > 1) {
     removeDiv('startDisplayDiv');
+    removeDiv('settingsDiv');
     displayDiv('displayDiv');
   } else {
     displayDiv('startDisplayDiv');
+    removeDiv('settingsDiv');
     removeDiv('displayDiv');
   }
   // GOTO a website that the user has entered...
@@ -37,7 +40,14 @@ usrField.onkeyup = function() {
     }
   } else {
     document.getElementById('display').innerHTML = usrField.value;
+    inputState = 0;
   }
+
+  if (usrField.value.indexOf(".sett") > -1) {
+    displayDiv('settingsDiv');
+    removeDiv('displayDiv');
+  }
+
 }
 
 function removeDiv(div) {
@@ -49,7 +59,7 @@ function displayDiv(div) {
 }
 
 function query(val) {
-  shell.openExternal("https://www.google.ca/?gfe_rd=cr&ei=5NnpVfajF4qV8QfglLCQBg&gws_rd=ssl#q=" + val);
+  shell.openExternal("https://www.google.ca/search?q=" + val);
 }
 
 //------------------------------//
@@ -61,7 +71,15 @@ function query(val) {
 
 function querySite(name, query) {
   if (name == "reddit" || name == "Reddit") {
-    shell.openExternal("https://reddit.com/search?q=" + query);
+    shell.openExternal("https://www.reddit.com/search?q=" + query);
+  } else if (name == "github" || name == "Github") {
+    shell.openExternal("https://www.github.com/search?utf8=✓&q=" + query);
+  } else if (name == "facebook" || name == "Facebook") {
+    shell.openExternal("https://www.facebook.com/search/top/?q=" + query);
+  } else if (name == "imgur" || name == "Imgur") {
+    shell.openExternal("http://www.imgur.com/search?q=" + query);
+  } else { // Default just use search engine to look for user's query
+    shell.openExternal("https://www.google.ca/search?q=" + name + query);
   }
 }
 
