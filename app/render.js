@@ -29,19 +29,19 @@ usrField.onkeyup = function() {
       var siteName = usrField.value.substring(0, haltIndex);
       site = siteName.replace("/", "");
       siteSearch = usrField.value.replace(siteName, "");
-      document.getElementById('display').innerHTML = siteName.replace("/", "") + ":        " + "<span style='background-color: orange;'>" + usrField.value.replace(siteName, "") + "</span>";
+      document.getElementById('display').innerHTML = siteName.replace("/", "") + ":        " + "<span style='background-color: #8ee5ee;'>" + usrField.value.replace(siteName, "") + "</span>";
       inputState = 2;
     } else {
-      document.getElementById('display').innerHTML = "www." + "<span style='background-color: yellow;'>" + usrField.value.replace("/", "") + "</span>" + ".com";
+      document.getElementById('display').innerHTML = "www." + "<span style='background-color: #bcee68;'>" + usrField.value.replace("/", "") + "</span>" + ".com";
       inputState = 1;
     }
   } else {
-    document.getElementById('display').innerHTML = usrField.value;
+    document.getElementById('display').innerHTML = "<i class='google icon'> </i>" + "Search: " + "<span style='background-color: #76eec6;'>" + usrField.value + "</span>";
     inputState = 0;
   }
 
   if (usrField.value.indexOf(".abo") > -1) {
-    var inText = "<p>Learn more about Quark @ www.github.com/mAzurkovic/quark</p>"
+    var inText = "<p>Learn more about Quark at www.github.com/mAzurkovic/quark <i class='github icon'></i></p>"
     document.getElementById('display').innerHTML = inText;
   }
 
