@@ -9,7 +9,6 @@ var siteSearch = null;
 var inputState = 0;
 
 document.getElementById('display').style.display = 'none';
-removeDiv('settingsDiv');
 
 usrField.onkeyup = function() {
   // Set default visibility of net display to visible
@@ -17,11 +16,9 @@ usrField.onkeyup = function() {
   // Check which panel to show
   if (document.getElementById('inputField').value.length > 1) {
     removeDiv('startDisplayDiv');
-    removeDiv('settingsDiv');
     displayDiv('displayDiv');
   } else {
     displayDiv('startDisplayDiv');
-    removeDiv('settingsDiv');
     removeDiv('displayDiv');
   }
   // GOTO a website that the user has entered...
@@ -43,9 +40,9 @@ usrField.onkeyup = function() {
     inputState = 0;
   }
 
-  if (usrField.value.indexOf(".sett") > -1) {
-    displayDiv('settingsDiv');
-    removeDiv('displayDiv');
+  if (usrField.value.indexOf(".abo") > -1) {
+    var inText = "<p>Learn more about Quark @ www.github.com/mAzurkovic/quark</p>"
+    document.getElementById('display').innerHTML = inText;
   }
 
 }

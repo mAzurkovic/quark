@@ -8,6 +8,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
+
 <body>
 	<div class="ui center aligned container">
 		<br>
@@ -15,6 +16,7 @@
 			<input placeholder="Search..." type="text" id="inputField" onkeydown="search(this)" autofocus>
 			<i class="search icon"></i>
 		</div>
+
 		<div class="ui very padded segment" id="startDisplayDiv">
 			<div class="ui very padded relaxed divided list" id="startDisplay">
 				<div class="item">
@@ -29,41 +31,28 @@
 						<h3 class="ui header">Enter "/" and the name of your desired website</h3>
 					</div>
 				</div>
-				<div class="item">
+				<!-- <div class="item">
 					<i class="large setting middle aligned icon"></i>
 					<div class="content">
-						<h3 class="ui header">Use ".settings" to view available commands and settings</h3>
+						<h3 class="ui header">Use ".settings" to open setting window</h3>
+					</div>
+				</div> -->
+				<div class="item">
+					<i class="large info circle middle aligned icon"></i>
+					<div class="content">
+						<h3 class="ui header">Type ".about" to learn about the application</h3>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="ui very padded segment" id="displayDiv">
 			<div id='display'></div>
 		</div>
-		<div class="ui very padded segment" id="settingsDiv">
-			<div class="ui very padded relaxed divided list" id="settings">
-				<div class="item">
-					<i class="large cloud middle aligned icon"></i>
-					<div class="content">
-						<h3 class="ui header">.about</h3>
-					</div>
-				</div>
-				<div class="item">
-					<i class="large map middle aligned icon"></i>
-					<div class="content">
-						<h3 class="ui header">.config</h3>
-					</div>
-				</div>
-				<div class="item">
-					<i class="large setting middle aligned icon"></i>
-					<div class="content">
-						<h3 class="ui header">.config</h3>
-					</div>
-				</div>
-			</div>
-		</div>
+
 		<footer></footer>
 	</div>
+
 </body>
 <script src="render.js"></script>
 </html>
